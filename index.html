@@ -1,136 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jahangir Alam — Civil / Quality Control Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Portfolio website of Jahangir Alam — Civil / Quality Control Engineer" />
-  <style>
-    /* Modern premium dark theme */
-    body { background-color: #0d0d0d; color: #e5e7eb; }
-    .card { background-color: #1a1a1a; border: 1px solid #2a2a2a; }
-    .accent { color: #38bdf8; }
-    .btn-primary { background-color: #38bdf8; color: black; font-weight: 500; }
-    .btn-primary:hover { background-color: #0ea5e9; }
-    .btn-outline { border: 1px solid #38bdf8; color: #38bdf8; }
-    .btn-outline:hover { background-color: #38bdf8; color: black; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jahangir Alam Portfolio</title>
+<style>
+  /* Global Styles */
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #f0f0f0;
+  }
+  a { color: inherit; text-decoration: none; }
+  h1,h2,h3 { color: #fff; }
+  section { padding: 60px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+  section.visible { opacity: 1; transform: translateY(0); }
+  .container { max-width: 1000px; margin: auto; }
+  
+  /* Header */
+  header {
+    position: fixed; top:0; left:0; width:100%;
+    background-color:#000; padding:20px 0;
+    text-align:center; z-index:100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  }
+  header h1 { font-size:2.5rem; letter-spacing:1px; margin-bottom:10px; }
+  nav a { margin:0 15px; font-weight:bold; color:#1e90ff; transition: color 0.3s; }
+  nav a:hover { color:#fff; }
+
+  /* Section Titles */
+  .section-title {
+    text-align:center; margin-bottom:40px; font-size:2rem; color:#1e90ff; position:relative;
+  }
+  .section-title::after {
+    content: ''; display:block; width:60px; height:3px; background:#1e90ff; margin:10px auto 0; border-radius:2px;
+  }
+
+  /* About Section */
+  #about p { line-height:1.6; font-size:1.1rem; text-align:center; max-width:700px; margin:auto; }
+
+  /* Projects Section */
+  #projects p { line-height:1.6; font-size:1.1rem; text-align:center; }
+
+  /* Certifications List */
+  .cert-list { list-style:none; padding:0; }
+  .cert-item { margin-bottom:20px; line-height:1.6; font-size:1.1rem; }
+  .cert-link {
+    color:#1e90ff; text-decoration:underline; cursor:pointer;
+    transition: color 0.3s, transform 0.2s;
+  }
+  .cert-link:hover { color:#fff; transform: scale(1.05); }
+
+  /* Contact Section */
+  #contact p { text-align:center; margin-bottom:10px; }
+
+  /* Modal */
+  #certModal {
+    display:none; position:fixed; z-index:1000; left:0; top:0;
+    width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.95);
+  }
+  #certModal img {
+    display:block; margin:80px auto; max-width:90%; max-height:80%;
+    border-radius:8px; box-shadow:0 5px 20px rgba(0,0,0,0.7);
+  }
+  .modal-close {
+    position:absolute; top:30px; right:50px; color:#fff; font-size:40px;
+    font-weight:bold; cursor:pointer; transition: color 0.3s;
+  }
+  .modal-close:hover { color:#1e90ff; }
+</style>
 </head>
-<body class="antialiased font-sans">
-  <header class="card sticky top-0 z-40 p-4 flex items-center justify-between">
-    <a href="#home" class="flex items-center gap-3">
-      <div class="h-10 w-10 rounded-full bg-slate-700 flex items-center justify-center font-semibold text-white">JA</div>
-      <div>
-        <h1 class="text-lg font-semibold text-white">Jahangir Alam</h1>
-        <p class="text-xs text-gray-400">Civil / Quality Control Engineer</p>
-      </div>
-    </a>
-    <nav class="hidden md:flex gap-6 items-center text-sm text-gray-300">
-      <a href="#about" class="hover:text-white">About</a>
-      <a href="#experience" class="hover:text-white">Experience</a>
-      <a href="#projects" class="hover:text-white">Projects</a>
-      <a href="#certifications" class="hover:text-white">Certifications</a>
-      <a href="#contact" class="hover:text-white">Contact</a>
-    </nav>
-  </header>
+<body>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 space-y-16">
-    <section id="home" class="flex flex-col md:flex-row gap-10 items-center">
-      <div class="flex-1">
-        <h2 class="text-4xl font-bold text-white">Jahangir Alam</h2>
-        <p class="mt-2 text-gray-400">Civil / Quality Control Engineer — focused on QA/QC, site inspection, safety & compliance for major infrastructure projects.</p>
+<!-- Header -->
+<header>
+  <h1>Jahangir Alam</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#contact" class="btn-primary px-4 py-2 rounded-md">Contact</a>
-          <a href="#projects" class="btn-outline px-4 py-2 rounded-md">View Projects</a>
-        </div>
-      </div>
-      <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-gray-700 shadow-lg">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Jahangir Photo" class="w-full h-full object-cover">
-      </div>
-    </section>
+<!-- About Section -->
+<section id="about" class="container">
+  <h2 class="section-title">About Me</h2>
+  <p>Hello! I'm Jahangir Alam, a Civil & Quality Control Engineer with 5+ years of experience in infrastructure and safety management. I also have certifications in project management, HSE, and professional writing.</p>
+</section>
 
-    <section id="about" class="card rounded-2xl p-8">
-      <h3 class="text-2xl font-semibold accent">About</h3>
-      <p class="mt-4 text-gray-300 leading-relaxed">Civil Engineer with over 5 years of experience in quality control, structural inspection, and compliance. Certified in HSE, Project Management, ISO 14001:2015, ISO 45001:2018, and OSHA Standards. Skilled in QA/QC documentation, safety, and fire-safety systems for major infrastructure projects.</p>
-    </section>
+<!-- Projects Section -->
+<section id="projects" class="container">
+  <h2 class="section-title">Projects</h2>
+  <p>Details of your major projects go here...</p>
+</section>
 
-    <section id="experience" class="space-y-6">
-      <h3 class="text-2xl font-semibold accent">Experience</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card rounded-xl p-6">
-          <h4 class="font-semibold text-white">Quality Control Engineer</h4>
-          <p class="text-sm text-gray-400">Aridod Tech Serve Ltd. — HSIA Terminal 03 Project | Jul 2023 – Jun 2025</p>
-          <ul class="mt-3 text-gray-300 list-disc list-inside text-sm">
-            <li>Conducted over 700+ inspections ensuring compliance with BNBC and international standards.</li>
-            <li>Managed QA/QC documentation with a 98% approval rate.</li>
-          </ul>
-        </div>
-        <div class="card rounded-xl p-6">
-          <h4 class="font-semibold text-white">Quality Control Engineer</h4>
-          <p class="text-sm text-gray-400">SMCC–ITD JV — Dhaka MRT Project | Oct 2021 – Jun 2023</p>
-          <ul class="mt-3 text-gray-300 list-disc list-inside text-sm">
-            <li>Supervised structural and RMC works ensuring project compliance.</li>
-            <li>Implemented safety measures reducing incidents by 20%.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- Certifications Section -->
+<section id="certifications" class="container">
+  <h2 class="section-title">My Certifications</h2>
+  <ul class="cert-list">
+    <li class="cert-item">PMP Certification: Unit 3, Coursera | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/pmp.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">ISO 45001:2018 Occupational Health & Safety Management System Awareness | Oct 24 
+      <span class="cert-link" onclick="showModal('certs/iso45001.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">ISO 14001:2015 Environmental Management System Awareness | Oct 24 
+      <span class="cert-link" onclick="showModal('certs/iso14001.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Introduction to OSHA: Safety Standards and Compliance | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/osha.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Health, Safety, and Environmental (HSE) Engineering | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/hse.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Construction Project Management | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/construction.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Managing Project Risks and Changes | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/risks.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Initiating and Planning Projects | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/planning.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">High-Impact Business Writing | Aug 25 
+      <span class="cert-link" onclick="showModal('certs/writing.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Health & Safety Induction Certificate | 2023 
+      <span class="cert-link" onclick="showModal('certs/induction.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Basic Safety Training | 2023 
+      <span class="cert-link" onclick="showModal('certs/basic_safety.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Standard First Aid, CPR & AED | 2023 
+      <span class="cert-link" onclick="showModal('certs/first_aid.jpg')">Click to view certificate</span>
+    </li>
+    <li class="cert-item">Workplace Safety, Health & Environmental Good Performance Award | 2023 
+      <span class="cert-link" onclick="showModal('certs/hse_award.jpg')">Click to view certificate</span>
+    </li>
+  </ul>
+</section>
 
-    <section id="projects" class="space-y-6">
-      <h3 class="text-2xl font-semibold accent">Projects</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="card p-4 rounded-xl">
-          <div class="h-40 bg-gray-700 rounded-lg flex items-center justify-center">Image</div>
-          <p class="mt-3 text-sm text-gray-300">HSIA Terminal 03 — QA/QC & Fire Safety</p>
-        </div>
-        <div class="card p-4 rounded-xl">
-          <div class="h-40 bg-gray-700 rounded-lg flex items-center justify-center">Image</div>
-          <p class="mt-3 text-sm text-gray-300">Dhaka MRT — Structural Works</p>
-        </div>
-        <div class="card p-4 rounded-xl">
-          <div class="h-40 bg-gray-700 rounded-lg flex items-center justify-center">Image</div>
-          <p class="mt-3 text-sm text-gray-300">Seawall & Reclamation Projects</p>
-        </div>
-      </div>
-    </section>
+<!-- Contact Section -->
+<section id="contact" class="container">
+  <h2 class="section-title">Contact Me</h2>
+  <p>Email: <a href="mailto:jahangir@example.com">jahangir@example.com</a></p>
+  <p>Phone: +880 1XXXXXXXXX</p>
+</section>
 
-    <section id="certifications" class="space-y-6">
-      <h3 class="text-2xl font-semibold accent">Certifications</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card p-6 rounded-xl text-sm text-gray-300">
-          <ul class="list-disc list-inside">
-            <li>PMP, Coursera</li>
-            <li>ISO 45001:2018 & ISO 14001:2015</li>
-            <li>OSHA Standards, Columbia University</li>
-          </ul>
-        </div>
-        <div class="card p-6 rounded-xl text-sm text-gray-300">
-          <ul class="list-disc list-inside">
-            <li>HSE Engineering, Khalifa University</li>
-            <li>First Aid & Workplace Safety, ADC</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- Modal -->
+<div id="certModal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <img id="modalImage" src="">
+</div>
 
-    <section id="contact" class="card rounded-2xl p-8">
-      <h3 class="text-2xl font-semibold accent">Contact</h3>
-      <p class="mt-4 text-gray-300">Interested in collaborations or job opportunities? Get in touch below:</p>
-      <ul class="mt-4 text-sm text-gray-400">
-        <li>Email: <a href="mailto:jarakibmridha@gmail.com" class="text-white">jarakibmridha@gmail.com</a></li>
-        <li>Phone: +8801735027724</li>
-        <li>Location: Sreepur, Gazipur, Dhaka, Bangladesh</li>
-      </ul>
-      <div class="mt-6">
-        <a href="mailto:jarakibmridha@gmail.com" class="btn-primary px-4 py-2 rounded-md">Send Email</a>
-      </div>
-    </section>
-  </main>
+<script>
+/* Modal */
+function showModal(imagePath) {
+  document.getElementById('certModal').style.display = 'block';
+  document.getElementById('modalImage').src = imagePath;
+}
+function closeModal() {
+  document.getElementById('certModal').style.display = 'none';
+}
 
-  <footer class="text-center py-6 border-t border-gray-800 text-sm text-gray-500">
-    © Jahangir Alam — Civil / Quality Control Engineer
-  </footer>
+/* Scroll reveal animations */
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
 </body>
 </html>
